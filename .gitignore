@@ -7,3 +7,7 @@
 /GitIssuesManager/GitIssueManager.Api/obj
 /GitIssuesManager/GitIssueManager.Core/obj
 /GitIssuesManager/.vs/GitIssueManager/v17
+/GitIssuesManager/.vs
+/GitIssuesManager/GitIssueManager.Api/bin/Debug/net8.0
+/GitIssuesManager/GitIssueManager.Core/bin/Debug/net8.0
+/GitIssuesManager/GitIssueManager.Api/appsettings.Development.json

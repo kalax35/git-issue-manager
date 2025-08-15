@@ -8,9 +8,10 @@ namespace GitIssueManager.Core.Models
 {
     public class Issue
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string State { get; set; }
+        public int Number { get; set; }        
+        public string Title { get; set; } = "";
+        public string Description { get; set; } = "";
+        public string State { get; set; } = ""; 
+        public string WebUrl { get; set; } = "";
     }
 }
