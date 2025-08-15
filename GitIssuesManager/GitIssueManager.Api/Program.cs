@@ -2,6 +2,7 @@ using GitIssueManager.Core.Abstractions;
 using GitIssueManager.Core.Infrastructure;
 using GitIssueManager.Core.Services;
 using System.Net.Http.Headers;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 var cfg = builder.Configuration;
@@ -34,7 +35,11 @@ builder.Services.AddTransient<IIssueService>(sp => sp.GetRequiredService<GitHubI
 builder.Services.AddTransient<IIssueService>(sp => sp.GetRequiredService<GitLabIssueService>());
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 var app = builder.Build();
 

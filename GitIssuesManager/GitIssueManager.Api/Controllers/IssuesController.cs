@@ -12,7 +12,10 @@ namespace GitIssueManager.Api.Controllers
 
         public IssuesController(IIssueServiceResolver resolver) => _resolver = resolver;
 
-        [HttpPost("{platform}")] // POST api/issues/github
+        /// <summary>
+        /// Creates a new issue in the given repository
+        /// </summary>
+        [HttpPost("{platform}")] //POST
         public async Task<IActionResult> Create(string platform, [FromBody] CreateIssueRequest req, CancellationToken ct)
         {
             var svc = _resolver.Resolve(platform);
@@ -20,15 +23,21 @@ namespace GitIssueManager.Api.Controllers
             return Ok(issue);
         }
 
-        [HttpPut("{platform}")] // PUT api/issues/gitlab
-        public async Task<IActionResult> Update(string platform, [FromBody] UpdateIssueRequest req, CancellationToken ct)
+        /// <summary>
+        /// Updates an existing issue's title and description
+        /// </summary>
+        [HttpPut("{platform}/{number}")] //PUT
+        public async Task<IActionResult> Update(string platform, int number, [FromBody] UpdateIssueRequest req, CancellationToken ct)
         {
             var svc = _resolver.Resolve(platform);
-            var issue = await svc.UpdateIssueAsync(req.Repo, req.Number, req.Title, req.Description, ct);
+            var issue = await svc.UpdateIssueAsync(req.Repo, number, req.Title, req.Description, ct);
             return Ok(issue);
         }
 
-        [HttpPost("{platform}/{number}/close")] // POST api/issues/github/123/close
+        /// <summary>
+        /// Updates an existing issue's title and description
+        /// </summary>
+        [HttpPost("{platform}/{number}/close")] //POST
         public async Task<IActionResult> Close(string platform, int number, [FromQuery] string repo, CancellationToken ct)
         {
             var svc = _resolver.Resolve(platform);
