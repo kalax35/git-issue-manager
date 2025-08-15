@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/GitIssuesManager/.vs/GitIssuesManager/FileContentIndex
+/GitIssuesManager/GitIssueManager.Api/obj/Debug/net8.0
+/GitIssuesManager/GitIssueManager.Api/obj
+/GitIssuesManager/GitIssueManager.Core/obj
+/GitIssuesManager/.vs/GitIssueManager/v17
