@@ -17,7 +17,7 @@ A .NET application to manage internal issues on GitHub and GitLab repositories v
 ## Configuration
 
 1. Clone the repository.
-2. Set up tokens in appsettings.Development.json:
+2. Set up tokens in appsettings.Development.json (in repo there's appsettings.Development.template.json):
 
 {
   "GitHosts": {
